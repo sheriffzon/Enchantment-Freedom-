@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "enchantment_freedom",
+  "version": "${version}",
+  "name": "Enchantment Freedom",
+  "description": "Removes vanilla enchantment restrictions and expands the enchantment system.",
+  "authors": ["Sheriffzon"],
+  "contact": {
+    "sources": "https://github.com/sheriffzon/Enchantment-Freedom-"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.sheriffzon.enchantmentfreedom.EnchantmentFreedom"
+    ]
+  },
+  "mixins": [
+    "enchantment_freedom.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "26.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
