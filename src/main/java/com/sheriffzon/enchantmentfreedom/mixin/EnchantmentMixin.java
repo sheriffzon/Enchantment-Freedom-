@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Enchantment.class)
 public abstract class EnchantmentMixin {
-    @Inject(method = "areCompatible", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "areCompatible", at = @At("TAIL"), cancellable = true)
     private static void enchantmentFreedom$allowAllCombinations(
             Holder<Enchantment> first,
             Holder<Enchantment> second,
@@ -19,7 +19,7 @@ public abstract class EnchantmentMixin {
         cir.setReturnValue(true);
     }
 
-    @Inject(method = "canEnchant", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "canEnchant", at = @At("TAIL"), cancellable = true)
     private void enchantmentFreedom$allowAllItems(
             ItemStack stack,
             CallbackInfoReturnable<Boolean> cir
