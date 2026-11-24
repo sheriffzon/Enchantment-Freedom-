@@ -3,7 +3,9 @@
   "package": "com.sheriffzon.enchantmentfreedom.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "EnchantmentMixin"
+    "EnchantmentMixin",
+    "AnvilMenuMixin",
+    "MerchantOfferMixin"
   ],
   "injectors": {
     "defaultRequire": 1
