@@ -7,7 +7,7 @@ A Fabric mod for Minecraft 26.2 that removes several vanilla enchantment restric
 - Raises the maximum level reported by enchantments to X, including supported modded enchantments.
 - Allows otherwise incompatible enchantments to coexist.
 - Allows enchantments to be applied to items outside their normal supported-item lists.
-- Removes the vanilla anvil "Too Expensive!" level-40 cutoff.
+- Removes the vanilla anvil "Too Expensive!" level-40 cutoff and displays the actual XP-level cost instead of the misleading warning.
 - Vanilla anvil combining upgrades equal enchantment levels by one, up to X (for example, V + V becomes VI). Minecraft's normal anvil merge logic performs this using the raised maximum level.
 - Adds Soul Speed, Swift Sneak, and Wind Burst to the vanilla tradeable-enchantment tag, making all vanilla enchantments eligible for librarian book trades.
 - Raises enchanted-book trade levels with progressively lower odds at higher levels; level X is exceptionally rare.
