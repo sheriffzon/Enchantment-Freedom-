@@ -8,29 +8,37 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Enchantment Freedom's vanilla-rule overrides.
+ *
+ * These small return-value hooks implement the mod's rules directly:
+ * compatibility is unrestricted, item applicability is unrestricted,
+ * and the supported enchantment ceiling is ten.
+ */
 @Mixin(Enchantment.class)
 public abstract class EnchantmentMixin {
-    @Inject(method = "areCompatible", at = @At("TAIL"), cancellable = true)
-    private static void enchantmentFreedom$allowAllCombinations(
-            Holder<Enchantment> first,
-            Holder<Enchantment> second,
-            CallbackInfoReturnable<Boolean> cir
+
+    @Inject(method = "areCompatible", at = @At("HEAD"), cancellable = true)
+    private static void enchantmentFreedom$compatibilityRule(
+            Holder<Enchantment> left,
+            Holder<Enchantment> right,
+            CallbackInfoReturnable<Boolean> result
     ) {
-        cir.setReturnValue(true);
+        result.setReturnValue(Boolean.TRUE);
     }
 
-    @Inject(method = "canEnchant", at = @At("TAIL"), cancellable = true)
-    private void enchantmentFreedom$allowAllItems(
-            ItemStack stack,
-            CallbackInfoReturnable<Boolean> cir
+    @Inject(method = "canEnchant", at = @At("HEAD"), cancellable = true)
+    private void enchantmentFreedom$itemApplicabilityRule(
+            ItemStack candidate,
+            CallbackInfoReturnable<Boolean> result
     ) {
-        cir.setReturnValue(true);
+        result.setReturnValue(Boolean.TRUE);
     }
 
     @Inject(method = "getMaxLevel", at = @At("HEAD"), cancellable = true)
-    private void enchantmentFreedom$raiseMaximumLevel(
-            CallbackInfoReturnable<Integer> cir
+    private void enchantmentFreedom$levelLimitRule(
+            CallbackInfoReturnable<Integer> result
     ) {
-        cir.setReturnValue(10);
+        result.setReturnValue(10);
     }
 }
