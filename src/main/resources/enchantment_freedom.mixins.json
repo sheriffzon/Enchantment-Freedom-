@@ -6,6 +6,9 @@
     "EnchantmentMixin",
     "AnvilMenuMixin"
   ],
+  "client": [
+    "client.AnvilCostLabelMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
