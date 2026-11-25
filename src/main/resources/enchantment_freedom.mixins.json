@@ -7,6 +7,9 @@
     "AnvilMenuMixin",
     "MerchantOfferMixin"
   ],
+  "client": [
+    "client.AnvilScreenMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
